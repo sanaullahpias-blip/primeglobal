@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Global - Visa & Air Ticketing Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #1e293b; }
+    .brand-font { font-family: 'Cinzel', serif; }
+    .spinner-ring { border: 3px solid rgba(14, 116, 144, 0.1); border-left-color: #0e7490; border-radius: 50%; width: 50px; height: 50px; animation: spin 1.2s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(226, 232, 240, 0.8); }
+    [contenteditable="true"] { outline: 2px dashed #0e7490 !important; background-color: rgba(14, 116, 144, 0.05); padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Admin Bar -->
+  <div class="bg-slate-900 text-white py-2 px-4 text-xs flex justify-between items-center sticky top-0 z-50 shadow-md">
+    <div class="flex items-center space-x-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+      <span class="font-medium text-slate-300">প্রাইম গ্লোবাল অ্যাডমিন কন্ট্রোল</span>
+    </div>
+    <div class="flex space-x-3">
+      <button onclick="toggleEditMode()" id="editBtn" class="bg-cyan-600 hover:bg-cyan-500 text-white px-3 py-1 rounded transition flex items-center gap-1 font-semibold">
+        <i class="fa-solid fa-pen-to-square"></i> <span id="editBtnText">কাস্টমাইজড এডিট মোড</span>
+      </button>
+      <button onclick="saveEdits()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded transition flex items-center gap-1 font-semibold">
+        <i class="fa-solid fa-floppy-disk"></i> সেভ করুন
+      </button>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="bg-white border-b border-slate-200 sticky top-9 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 bg-gradient-to-br from-slate-800 to-slate-950 rounded-xl p-2 shadow-lg flex items-center justify-center">
+          <svg viewBox="0 0 200 200" class="w-full h-full text-slate-200">
+            <path d="M 30,110 L 170,30 L 110,170 L 90,120 Z" fill="none" stroke="currentColor" stroke-width="12" stroke-linejoin="round"/>
+            <path d="M 90,120 L 170,30" stroke="currentColor" stroke-width="10"/>
+            <path d="M 70,140 L 110,180 L 180,90" fill="none" stroke="#38bdf8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-font text-2xl md:text-3xl font-bold tracking-wider text-slate-900 editable" id="brandTitle">PRIME GLOBAL</h1>
+          <p class="text-xs md:text-sm text-cyan-700 font-bold tracking-widest uppercase editable" id="brandSub">VISA & AIR TICKETING SERVICES</p>
+          <p class="text-xs text-slate-500 font-medium italic editable" id="brandTagline">Your Trusted Partner</p>
+        </div>
+      </div>
+
+      <!-- Quick Contact Info -->
+      <div class="flex flex-wrap items-center gap-6 text-sm">
+        <a href="https://wa.me/8801620458326" target="_blank" class="flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span class="editable" id="phoneText">+880 1620-458326</span>
+        </a>
+        <div class="hidden lg:flex flex-col text-slate-600 text-xs border-l border-slate-200 pl-4">
+          <span class="font-semibold text-slate-800">অফিস লোকেশন:</span>
+          <span class="editable" id="headerAddr">Akter Shopping City (Lift-05), Modina Market, Sylhet</span>
+        </div>
+        <div class="flex items-center gap-3 text-lg text-slate-600">
+          <a href="https://www.facebook.com/profile.php?id=61594384176682" target="_blank" class="hover:text-blue-600 transition"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/prime_global12?psln=MTF2OXRpcTIwcGIxMA==" target="_blank" class="hover:text-pink-600 transition"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero & Success Ratio Section -->
+  <section class="relative bg-gradient-to-b from-slate-900 to-slate-800 text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Continuous Loading Spinner Success Ratios -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="glass-card bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center flex flex-col items-center">
+          <div class="relative flex items-center justify-center my-2">
+            <div class="spinner-ring"></div>
+            <span class="absolute font-bold text-cyan-400 text-sm">99%</span>
+          </div>
+          <p class="text-xs text-slate-300 font-semibold mt-1">Visa Success Ratio</p>
+        </div>
+        <div class="glass-card bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center flex flex-col items-center">
+          <div class="relative flex items-center justify-center my-2">
+            <div class="spinner-ring"></div>
+            <span class="absolute font-bold text-emerald-400 text-sm">100%</span>
+          </div>
+          <p class="text-xs text-slate-300 font-semibold mt-1">Free Medical Support</p>
+        </div>
+        <div class="glass-card bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center flex flex-col items-center">
+          <div class="relative flex items-center justify-center my-2">
+            <div class="spinner-ring"></div>
+            <span class="absolute font-bold text-amber-400 text-sm">24/7</span>
+          </div>
+          <p class="text-xs text-slate-300 font-semibold mt-1">Air Ticketing Support</p>
+        </div>
+        <div class="glass-card bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center flex flex-col items-center">
+          <div class="relative flex items-center justify-center my-2">
+            <div class="spinner-ring"></div>
+            <span class="absolute font-bold text-purple-400 text-sm">Fast</span>
+          </div>
